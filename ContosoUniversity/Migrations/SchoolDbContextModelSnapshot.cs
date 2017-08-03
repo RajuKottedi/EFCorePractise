@@ -31,7 +31,7 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Enrollment", b =>
                 {
-                    b.Property<int>("EnrollmentID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("CourseID");
@@ -40,7 +40,7 @@ namespace ContosoUniversity.Migrations
 
                     b.Property<int>("StudentID");
 
-                    b.HasKey("EnrollmentID");
+                    b.HasKey("ID");
 
                     b.HasIndex("CourseID");
 

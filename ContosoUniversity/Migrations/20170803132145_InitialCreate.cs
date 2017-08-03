@@ -41,7 +41,7 @@ namespace ContosoUniversity.Migrations
                 name: "Enrollment",
                 columns: table => new
                 {
-                    EnrollmentID = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CourseID = table.Column<int>(nullable: false),
                     Grade = table.Column<int>(nullable: true),
@@ -49,7 +49,7 @@ namespace ContosoUniversity.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Enrollment", x => x.EnrollmentID);
+                    table.PrimaryKey("PK_Enrollment", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Enrollment_Course_CourseID",
                         column: x => x.CourseID,

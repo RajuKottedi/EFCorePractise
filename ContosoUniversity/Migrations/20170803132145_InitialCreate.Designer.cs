@@ -8,7 +8,7 @@ using ContosoUniversity.Data;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20170803115219_InitialCreate")]
+    [Migration("20170803132145_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Enrollment", b =>
                 {
-                    b.Property<int>("EnrollmentID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("CourseID");
@@ -41,7 +41,7 @@ namespace ContosoUniversity.Migrations
 
                     b.Property<int>("StudentID");
 
-                    b.HasKey("EnrollmentID");
+                    b.HasKey("ID");
 
                     b.HasIndex("CourseID");
 
