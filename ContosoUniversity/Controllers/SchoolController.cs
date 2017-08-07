@@ -4,6 +4,7 @@
     using ContosoUniversity.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -44,13 +45,14 @@
         }
 
         [HttpPost]
-        public async Task<string> DeleteStudent(int studentId)
+        public async Task<string> DeleteStudent([FromBody]JObject jsonObject)
         {
             string result = "Student ID doesnot exist";
+            int studentId = (int) jsonObject["studentId"];
             if(studentId > 0)
             {
                 Student student = this.schoolDbContext.Students.FirstOrDefault(item => item.ID == studentId);
-                if (student?.ID != 0)
+                if (student?.ID != 0 && student?.ID != null)
                 {
                     this.schoolDbContext.Students.Remove(student);
                     await this.schoolDbContext.SaveChangesAsync();
